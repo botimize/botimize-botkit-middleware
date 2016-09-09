@@ -22,7 +22,6 @@
   },
   "main": "lib/botkit-middleware.js",
   "dependencies": {
-    "request": "^2.74.0"
   },
   "devDependencies": {
     "babel-cli": "^6.11.4",

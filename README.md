@@ -1,4 +1,5 @@
-## botimize-botkit-middleware
+# botimize-botkit-middleware
+[![npm](https://img.shields.io/npm/v/botimize-botkit-middleware.svg?maxAge=2592000)](https://www.npmjs.com/package/botimize-botkit-middleware)
 
 This middleware plugin for [Botkit](http://howdy.ai/botkit) allows you to seamlessly integrate [botimize](http://botimize.io) functionalities into your Botkit bot.
 
@@ -6,7 +7,7 @@ This middleware plugin for [Botkit](http://howdy.ai/botkit) allows you to seamle
 
 - Create a free account at [botimize](botimize.io) to get an API key.
 
-- Install botimize SDK with `npm`:
+- Since botimize SDK is a peer dependency, it needs to be installed manually:
 
   ```shell
   npm install --save botimize

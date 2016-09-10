@@ -1,5 +1,7 @@
 # botimize-botkit-middleware
-[![npm](https://img.shields.io/npm/v/botimize-botkit-middleware.svg?maxAge=2592000)](https://www.npmjs.com/package/botimize-botkit-middleware)
+
+[![build status](https://img.shields.io/travis/botimize/botimize-botkit-middleware/master.svg?style=flat-square)](https://travis-ci.org/botimize/botimize-botkit-middleware)
+[![npm](https://img.shields.io/npm/v/botimize-botkit-middleware.svg?style=flat-square)](https://www.npmjs.com/package/botimize-botkit-middleware)
 
 This middleware plugin for [Botkit](http://howdy.ai/botkit) allows you to seamlessly integrate [botimize](http://botimize.io) functionalities into your Botkit bot.
 
@@ -36,4 +38,3 @@ This middleware plugin for [Botkit](http://howdy.ai/botkit) allows you to seamle
   controller.middleware.send.use(botimizeBotkit.send);
   ```
 
-  ​

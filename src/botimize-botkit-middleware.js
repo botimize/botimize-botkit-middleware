@@ -1,5 +1,3 @@
-import * as fs from 'fs';
-
 class BotkitMiddlewareBase {
   constructor(botimize) {
     this.botimize = botimize;
@@ -30,15 +28,13 @@ class BotkitMiddlewareBase {
 }
 
 class Facebook extends BotkitMiddlewareBase {
-  constructor(botimize) {
-    super(botimize);
-  }
-
   transferIncoming(bot, message) {
     let fbMessage = {
-      "sender": { "id": message.user },
-      "timestamp": message.timestamp,
-      "message":{}
+      'sender': {
+        'id': message.user
+      },
+      'timestamp': message.timestamp,
+      'message': {}
     };
 
     if (message.text) {
@@ -66,21 +62,21 @@ class Facebook extends BotkitMiddlewareBase {
     }
 
     return {
-      "object": "page",
-      "entry": [{
-        "time": message.timestamp,
-        "messaging": [ fbMessage ]
+      object: 'page',
+      entry: [{
+        time: message.timestamp,
+        messaging: [ fbMessage ]
       }]
     };
   }
 
   transferOutgoing(bot, message) {
     let fbMessage = {
-      "recipient": {},
-      "message": {}
+      recipient: {},
+      message: {}
     };
 
-    if (typeof(message.channel) == 'string' && message.channel.match(/\+\d+\(\d\d\d\)\d\d\d\-\d\d\d\d/)) {
+    if (typeof message.channel === 'string' && message.channel.match(/\+\d+\(\d\d\d\)\d\d\d\-\d\d\d\d/)) {
       fbMessage.recipient.phone_number = message.channel;
     } else {
       fbMessage.recipient.id = message.channel;
@@ -109,10 +105,6 @@ class Facebook extends BotkitMiddlewareBase {
 }
 
 class Slack extends BotkitMiddlewareBase {
-  constructor(botimize) {
-    super(botimize);
-  }
-
   addTeamInfo(bot, message) {
     let id = JSON.parse(JSON.stringify(bot.identify));
     let teamInfo = JSON.parse(JSON.stringify(bot.team_info));
@@ -121,19 +113,19 @@ class Slack extends BotkitMiddlewareBase {
     teamInfo.bot = id;
 
     return {
-      "team": teamInfo,
-      "bot": id,
-      "token": bot.config.token,
-      "message": message
+      team: teamInfo,
+      bot: id,
+      token: bot.config.token,
+      message: message
     };
   }
 
   transferIncoming(bot, message) {
-    return addTeamInfo(bot, message);
+    return this.addTeamInfo(bot, message);
   }
 
   transferOutgoing(bot, message) {
-    return addTeamInfo(bot, message);
+    return this.addTeamInfo(bot, message);
   }
 
   receive(bot, message, next) {

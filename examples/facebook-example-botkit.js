@@ -75,14 +75,14 @@ var ops = commandLineArgs([
     args: 1,
     description: 'Use localtunnel.me to make your bot available on the web.',
     type: Boolean,
-    defaultValue: false
+    defaultValue: false,
   }, {
     name: 'ltsubdomain',
     alias: 's',
     args: 1,
     description: 'Custom subdomain for the localtunnel.me URL. This option can only be used together with --lt.',
     type: String,
-    defaultValue: null
+    defaultValue: null,
   },
 ]);
 
@@ -158,19 +158,19 @@ controller.hears(['structured'], 'message_received', function(bot, message) {
                 {
                   'type': 'web_url',
                   'url': 'https://petersapparel.parseapp.com/view_item?item_id=100',
-                  'title': 'View Item'
+                  'title': 'View Item',
                 },
                 {
                   'type': 'web_url',
                   'url': 'https://petersapparel.parseapp.com/buy_item?item_id=100',
-                  'title': 'Buy Item'
+                  'title': 'Buy Item',
                 },
                 {
                   'type': 'postback',
                   'title': 'Bookmark Item',
-                  'payload': 'White T-Shirt'
-                }
-              ]
+                  'payload': 'White T-Shirt',
+                },
+              ],
             },
             {
               'title': 'Classic Grey T-Shirt',
@@ -180,23 +180,23 @@ controller.hears(['structured'], 'message_received', function(bot, message) {
                 {
                   'type': 'web_url',
                   'url': 'https://petersapparel.parseapp.com/view_item?item_id=101',
-                  'title': 'View Item'
+                  'title': 'View Item',
                 },
                 {
                   'type': 'web_url',
                   'url': 'https://petersapparel.parseapp.com/buy_item?item_id=101',
-                  'title': 'Buy Item'
+                  'title': 'Buy Item',
                 },
                 {
                   'type': 'postback',
                   'title': 'Bookmark Item',
-                  'payload': 'Grey T-Shirt'
-                }
-              ]
-            }
-          ]
-        }
-      }
+                  'payload': 'Grey T-Shirt',
+                },
+              ],
+            },
+          ],
+        },
+      },
     }, function(response, convo) {
       // whoa, I got the postback payload as a response to my convo.ask!
       convo.next();
@@ -248,20 +248,20 @@ controller.hears(['what is my name', 'who am i'], 'message_received', function(b
                   // since no further messages are queued after this,
                   // the conversation will end naturally with status == 'completed'
                   convo.next();
-                }
+                },
               }, {
                 pattern: 'no',
                 callback: function(response, convo) {
                   // stop the conversation. this will cause it to end with status == 'stopped'
                   convo.stop();
-                }
+                },
               }, {
                 default: true,
                 callback: function(response, convo) {
                   convo.repeat();
                   convo.next();
-                }
-              }
+                },
+              },
             ]);
             convo.next();
           }, {'key': 'nickname'}); // store the results in a field called nickname
@@ -312,7 +312,7 @@ controller.hears(['shutdown'], 'message_received', function(bot, message) {
           setTimeout(function() {
             process.exit();
           }, 3000);
-        }
+        },
       },
       {
         pattern: bot.utterances.no,
@@ -320,8 +320,8 @@ controller.hears(['shutdown'], 'message_received', function(bot, message) {
         callback: function(response, convo) {
           convo.say('*Phew!*');
           convo.next();
-        }
-      }
+        },
+      },
     ]);
   });
 });

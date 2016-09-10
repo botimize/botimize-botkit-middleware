@@ -30,11 +30,11 @@ class BotkitMiddlewareBase {
 class Facebook extends BotkitMiddlewareBase {
   transferIncoming(bot, message) {
     let fbMessage = {
-      'sender': {
-        'id': message.user
+      sender: {
+        id: message.user,
       },
-      'timestamp': message.timestamp,
-      'message': {}
+      timestamp: message.timestamp,
+      message: {},
     };
 
     if (message.text) {
@@ -63,17 +63,21 @@ class Facebook extends BotkitMiddlewareBase {
 
     return {
       object: 'page',
-      entry: [{
-        time: message.timestamp,
-        messaging: [ fbMessage ]
-      }]
+      entry: [
+        {
+          time: message.timestamp,
+          messaging: [
+            fbMessage,
+          ],
+        },
+      ],
     };
   }
 
   transferOutgoing(bot, message) {
     let fbMessage = {
       recipient: {},
-      message: {}
+      message: {},
     };
 
     if (typeof message.channel === 'string' && message.channel.match(/\+\d+\(\d\d\d\)\d\d\d\-\d\d\d\d/)) {
@@ -116,7 +120,7 @@ class Slack extends BotkitMiddlewareBase {
       team: teamInfo,
       bot: id,
       token: bot.config.token,
-      message: message
+      message: message,
     };
   }
 

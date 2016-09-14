@@ -7,7 +7,7 @@ This middleware plugin for [Botkit](http://howdy.ai/botkit) allows you to seamle
 
 ### Setup
 
-- Create a free account at [botimize](botimize.io) to get an API key.
+- Create a free account at [botimize](http://botimize.io) to get an API key.
 
 - Since botimize SDK is a peer dependency, it needs to be installed manually:
 

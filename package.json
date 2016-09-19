@@ -23,7 +23,7 @@
     "build": "babel src -d lib",
     "prepublish": "npm run build"
   },
-  "main": "lib/botkit-middleware.js",
+  "main": "lib/botimize-botkit-middleware.js",
   "dependencies": {},
   "devDependencies": {
     "babel-cli": "^6.11.4",

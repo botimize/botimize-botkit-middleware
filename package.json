@@ -40,6 +40,6 @@
     "os": "^0.1.1"
   },
   "peerDependencies": {
-    "botimize": "^0.0.2"
+    "botimize": "^0.2.0"
   }
 }

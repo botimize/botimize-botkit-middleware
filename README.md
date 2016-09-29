@@ -26,7 +26,7 @@ This middleware plugin for [Botkit](http://howdy.ai/botkit) allows you to seamle
 * Use API key to create a new botimize and middleware objects:
 
   ```javascript
-  const botimize = require('botimize')('<YOUR-API-KEY'>, 'facebook');
+  const botimize = require('botimize')('<YOUR-API-KEY>', 'facebook');
   const botimizeBotkit = require('botimize-botkit-middleware')(botimize);
   ```
 

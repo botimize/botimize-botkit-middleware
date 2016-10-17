@@ -36,8 +36,7 @@
     "eslint-config-standard": "^6.0.0",
     "eslint-plugin-promise": "^2.0.1",
     "eslint-plugin-standard": "^2.0.0",
-    "localtunnel": "^1.8.1",
-    "os": "^0.1.1"
+    "localtunnel": "^1.8.1"
   },
   "peerDependencies": {
     "botimize": "^0.3.0"

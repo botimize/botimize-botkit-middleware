@@ -7,12 +7,12 @@ class BotkitMiddlewareBase {
   }
 
   transferIncoming(bot, message) {
-    console.log('transfer incoming message in botimize base.');
+    // console.log('transfer incoming message in botimize base.');
     return message;
   }
 
   transferOutgoing(bot, message) {
-    console.log('transfer outgoing message in botimize base.');
+    // console.log('transfer outgoing message in botimize base.');
     return message;
   }
 

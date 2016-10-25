@@ -39,6 +39,6 @@
     "localtunnel": "^1.8.1"
   },
   "peerDependencies": {
-    "botimize": "^0.3.0"
+    "botimize": "^0.4.0"
   }
 }

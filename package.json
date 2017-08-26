@@ -1,6 +1,6 @@
 {
   "name": "botimize-botkit-middleware",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Middleware for using botimize with Botkit-powered bots",
   "directories": {
     "lib": "./lib"
@@ -10,7 +10,7 @@
     "botkit",
     "middleware"
   ],
-  "author": "botimize, Inc. <dev@botimize.io>",
+  "author": "Botimize, Inc. <dev@getbotimize.com>",
   "license": "MIT",
   "repository": {
     "type": "git",

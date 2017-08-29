@@ -1,28 +1,37 @@
 class BotkitMiddlewareBase {
-  constructor(botimize) {
+  constructor(botimize, options = {}) {
     this.botimize = botimize;
     // In ES5, need to bind this when internal function calling.
     this.receive = this.receive.bind(this);
     this.send = this.send.bind(this);
+    this.debug = options.debug || false;
   }
 
   transferIncoming(bot, message) {
-    // console.log('transfer incoming message in botimize base.');
     return message;
   }
 
   transferOutgoing(bot, message) {
-    // console.log('transfer outgoing message in botimize base.');
     return message;
   }
 
   receive(bot, message, next) {
-    this.botimize.logIncoming(this.transferIncoming(bot, message), 'botkit');
+    if (this.debug) {
+      console.log('[BotkitMiddlewareBase receive]', bot, message);
+    }
+    this.botimize.logIncoming(this.transferIncoming(bot, message), {
+      parse: 'pure', source: 'botkit',
+    });
     next();
   }
 
   send(bot, message, next) {
-    this.botimize.logOutgoing(this.transferOutgoing(bot, message), 'botkit');
+    if (this.debug) {
+      console.log('[BotkitMiddlewareBase send]', bot, message);
+    }
+    this.botimize.logOutgoing(this.transferOutgoing(bot, message), {
+      parse: 'pure', source: 'botkit',
+    });
     next();
   }
 }
@@ -80,7 +89,8 @@ class Facebook extends BotkitMiddlewareBase {
       message: {},
     };
 
-    if (typeof message.channel === 'string' && message.channel.match(/\+\d+\(\d\d\d\)\d\d\d\-\d\d\d\d/)) {
+    if (typeof message.channel === 'string' &&
+      message.channel.match(/\+\d+\(\d\d\d\)\d\d\d\-\d\d\d\d/)) {
       fbMessage.recipient.phone_number = message.channel;
     } else {
       fbMessage.recipient.id = message.channel;
@@ -102,7 +112,7 @@ class Facebook extends BotkitMiddlewareBase {
       fbMessage.message.quick_replies = message.quick_replies;
     }
 
-    fbMessage.access_token = bot.botkit.config.access_token;
+    fbMessage.accessToken = bot.botkit.config.access_token;
 
     return fbMessage;
   }
@@ -140,11 +150,11 @@ class Slack extends BotkitMiddlewareBase {
   }
 }
 
-export default function botimizeBotkit(botimize) {
+export default function botimizeBotkit(botimize, options = {}) {
   if (botimize.platform === 'facebook') {
-    return new Facebook(botimize);
+    return new Facebook(botimize, options);
   } else if (botimize.platform === 'slack') {
-    return new Slack(botimize);
+    return new Slack(botimize, options);
   } else {
     throw new Error('Invalid platform');
   }

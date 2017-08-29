@@ -1,6 +1,6 @@
 {
   "name": "botimize-botkit-middleware",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Middleware for using botimize with Botkit-powered bots",
   "directories": {
     "lib": "./lib"
